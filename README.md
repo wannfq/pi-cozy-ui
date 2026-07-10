@@ -2,6 +2,19 @@
 
 A clean look for [pi](https://pi.dev) — a minimal left-bar input box and startup screen.
 
+## Install
+
+```bash
+pi install git:github.com/wannfq/pi-clean-look
+```
+
+Then enable/disable modules in the resource config TUI:
+
+```bash
+pi config
+```
+
+
 ## Preview
 
 <picture>
