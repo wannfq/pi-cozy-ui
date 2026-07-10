@@ -14,6 +14,23 @@ Then enable/disable modules in the resource config TUI:
 pi config
 ```
 
+## Recommended settings
+
+Enable quiet startup to suppress Pi's default startup banner — the startup screen module replaces it with a cleaner centered header:
+
+```bash
+pi config
+```
+
+In the config TUI, set `quietStartup` to `true`. Or add it directly to `~/.pi/agent/settings.json`:
+
+```json
+{
+  "quietStartup": true
+}
+```
+
+
 
 ## Preview
 
