@@ -1,8 +1,5 @@
-import { readFileSync } from "node:fs";
-import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
-import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
-import type { Theme } from "@earendil-works/pi-coding-agent";
+import type { ExtensionAPI, Theme } from "@earendil-works/pi-coding-agent";
+import { VERSION as piVersion } from "@earendil-works/pi-coding-agent";
 import type { Component, TUI } from "@earendil-works/pi-tui";
 import { visibleWidth } from "@earendil-works/pi-tui";
 import { center } from "../lib/text-layout.js";
@@ -19,18 +16,6 @@ import { center } from "../lib/text-layout.js";
  * Installed via `ctx.ui.setHeader()` — renders above chat at startup.
  * Run `/reload` inside pi to apply changes live.
  */
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const agentPkgPath = join(
-  __dirname,
-  "..",
-  "node_modules",
-  "@earendil-works",
-  "pi-coding-agent",
-  "package.json",
-);
-const piVersion = JSON.parse(readFileSync(agentPkgPath, "utf-8"))
-  .version as string;
 
 const LOGO = ["██████  ", "██  ██  ", "████  ██", "██    ██"];
 
