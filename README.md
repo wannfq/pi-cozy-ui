@@ -49,7 +49,7 @@ In the config TUI, set `quietStartup` to `true`. Or add it directly to `~/.pi/ag
 
 
 ┃
-┃
+┃ █
 ┃
 ┃ opencode-go/glm-5.2:high                                                              0%/1000k $0
  ~/projects/pi-clean-look                                                                      main
