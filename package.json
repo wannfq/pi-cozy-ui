@@ -1,0 +1,42 @@
+{
+  "name": "pi-clean-look",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Clean look for pi — left-bar input box and startup screen",
+  "type": "module",
+  "keywords": [
+    "pi-package"
+  ],
+  "packageManager": "pnpm@11.1.0",
+  "pi": {
+    "extensions": [
+      "./extensions/input-field.ts",
+      "./extensions/startup-screen.ts"
+    ]
+  },
+  "scripts": {
+    "dev": "pi --no-extensions -e ./extensions/input-field.ts -e ./extensions/startup-screen.ts",
+    "check": "tsc --noEmit --strict --module esnext --moduleResolution bundler --target es2022 --skipLibCheck extensions/input-field.ts extensions/startup-screen.ts lib/text-layout.ts lib/chrome-layout.ts",
+    "test": "vitest run",
+    "dev:startup": "pi --no-extensions -e ./extensions/startup-screen.ts",
+    "dev:input": "pi --no-extensions -e ./extensions/input-field.ts"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-tui": "*"
+  },
+  "peerDependenciesMeta": {
+    "@earendil-works/pi-coding-agent": {
+      "optional": false
+    },
+    "@earendil-works/pi-tui": {
+      "optional": false
+    }
+  },
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "0.80.6",
+    "@earendil-works/pi-tui": "0.80.6",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.10"
+  }
+}
