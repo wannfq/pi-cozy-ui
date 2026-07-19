@@ -9,7 +9,7 @@ import { center } from "../lib/text-layout.js";
  *
  * Layout:
  *   - 2 blank lines (top padding)
- *   - Centered "pi" ASCII art icon in the theme text color
+ *   - Centered "pi" ASCII art icon in the theme tool-title color
  *   - Centered version string below the icon, muted
  *   - 2 blank lines (bottom padding)
  *
@@ -33,7 +33,7 @@ function createStartupHeader(theme: Theme): Component {
 			const versionStr = `v${piVersion}`;
 			const versionLineIdx = LOGO.length - 1;
 			const coloredLines = LOGO.map((row, i) => {
-				const logoColored = thm.fg("text", row);
+				const logoColored = thm.fg("toolTitle", row);
 				if (i === versionLineIdx) {
 					return logoColored + " " + thm.fg("muted", versionStr);
 				}

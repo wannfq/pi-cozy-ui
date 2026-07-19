@@ -1,6 +1,6 @@
 {
   "name": "pi-cozy-ui",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Cozy UI for Pi — left-bar input box, startup screen, and cozy themes",
   "license": "MIT",
   "repository": {
@@ -59,8 +59,8 @@
     }
   },
   "devDependencies": {
-    "@earendil-works/pi-coding-agent": "0.80.6",
-    "@earendil-works/pi-tui": "0.80.6",
+    "@earendil-works/pi-coding-agent": "0.80.10",
+    "@earendil-works/pi-tui": "0.80.10",
     "typescript": "^5.9.3",
     "vitest": "^4.1.10"
   }
