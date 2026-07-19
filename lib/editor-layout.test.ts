@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { composeChrome } from "./chrome-layout.js";
+import { composeEditorLayout } from "./editor-layout.js";
 
-describe("composeChrome", () => {
+describe("composeEditorLayout", () => {
 	const baseInput = {
 		editorLines: ["──────────", "input text", "──────────"],
 		width: 20,
@@ -12,12 +12,12 @@ describe("composeChrome", () => {
 	};
 
 	it("removes the top border so input begins on the first row", () => {
-		const out = composeChrome(baseInput);
+		const out = composeEditorLayout(baseInput);
 		expect(out[0]).toBe("┃  input text");
 	});
 
 	it("replaces the bottom border with blank bar + status", () => {
-		const out = composeChrome(baseInput);
+		const out = composeEditorLayout(baseInput);
 		expect(out[1]).toBe(baseInput.blankBar);
 		expect(out[2]).toBe(baseInput.status);
 	});
@@ -33,13 +33,13 @@ describe("composeChrome", () => {
 				"suggestion 2",
 			],
 		};
-		const out = composeChrome(input);
+		const out = composeEditorLayout(input);
 		expect(out[3]).toBe("suggestion 1");
 		expect(out[4]).toBe("suggestion 2");
 	});
 
 	it("prefixes content lines with the bar + inset", () => {
-		const out = composeChrome(baseInput);
+		const out = composeEditorLayout(baseInput);
 		expect(out[0]).toBe("┃  input text");
 	});
 
@@ -48,7 +48,7 @@ describe("composeChrome", () => {
 			...baseInput,
 			editorLines: ["──────────", "input text"],
 		};
-		const out = composeChrome(input);
+		const out = composeEditorLayout(input);
 		expect(out[out.length - 3]).toBe(input.blankBar);
 		expect(out[out.length - 2]).toBe(input.status);
 		expect(out[out.length - 1]).toBe(input.footerRow);
@@ -61,7 +61,7 @@ describe("composeChrome", () => {
 			editorLines: ["──────────", "very long input text", "──────────"],
 			blankBar: "┃         ",
 		};
-		const out = composeChrome(input);
+		const out = composeEditorLayout(input);
 		expect(out[1].startsWith("┃  ")).toBe(true);
 		// Truncation keeps the visible width within the requested width.
 		expect(out[1].length).toBeLessThan("┃  very long input text".length);

@@ -2,13 +2,14 @@
   "name": "pi-cozy-ui",
   "version": "0.2.0",
   "private": true,
-  "description": "Cozy UI for Pi — left-bar input box, startup screen, and pastel themes",
+  "description": "Cozy UI for Pi — left-bar input box, startup screen, and cozy themes",
   "type": "module",
   "keywords": [
     "pi-package"
   ],
   "packageManager": "pnpm@11.1.0",
   "pi": {
+    "image": "https://raw.githubusercontent.com/wannfq/pi-cozy-ui/main/docs/preview.png",
     "extensions": [
       "./extensions/input-field.ts",
       "./extensions/startup-screen.ts"
@@ -18,9 +19,9 @@
     ]
   },
   "scripts": {
-    "dev": "pi --no-extensions --no-themes --theme ./themes/pastel-dark.json -e ./extensions/input-field.ts -e ./extensions/startup-screen.ts",
-    "dev:light": "pi --no-extensions --no-themes --theme ./themes/pastel-light.json -e ./extensions/input-field.ts -e ./extensions/startup-screen.ts",
-    "check": "tsc --noEmit --strict --module esnext --moduleResolution bundler --target es2022 --skipLibCheck extensions/input-field.ts extensions/startup-screen.ts lib/text-layout.ts lib/chrome-layout.ts lib/git-status.ts",
+    "dev": "pi --no-extensions --no-themes --theme ./themes/cozy-dark.json -e ./extensions/input-field.ts -e ./extensions/startup-screen.ts",
+    "dev:light": "pi --no-extensions --no-themes --theme ./themes/cozy-light.json -e ./extensions/input-field.ts -e ./extensions/startup-screen.ts",
+    "check": "tsc --noEmit --strict --module esnext --moduleResolution bundler --target es2022 --skipLibCheck extensions/input-field.ts extensions/startup-screen.ts lib/text-layout.ts lib/editor-layout.ts lib/git-status.ts",
     "test": "vitest run",
     "dev:startup": "pi --no-extensions -e ./extensions/startup-screen.ts",
     "dev:input": "pi --no-extensions -e ./extensions/input-field.ts"

@@ -4,7 +4,7 @@ import {
 	type KeybindingsManager,
 } from "@earendil-works/pi-coding-agent";
 import type { Component, EditorTheme, TUI } from "@earendil-works/pi-tui";
-import { composeChrome } from "../lib/chrome-layout.js";
+import { composeEditorLayout } from "../lib/editor-layout.js";
 import { parseGitStatus, type GitStatusCounts } from "../lib/git-status.js";
 import {
 	buildFullWidthRow,
@@ -240,7 +240,7 @@ export default function (pi: ExtensionAPI) {
 						.join(" ");
 				}
 
-				return composeChrome({
+				return composeEditorLayout({
 					editorLines: lines,
 					width,
 					prefix,

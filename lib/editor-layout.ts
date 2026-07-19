@@ -2,14 +2,14 @@ import { truncateToWidth, visibleWidth } from "@earendil-works/pi-tui";
 import { isBorderLine } from "./text-layout.js";
 
 /**
- * Chrome layout engine for the minimal left-bar input box.
+ * Editor layout engine for the minimal left-bar input box.
  *
- * This module is pure: given the raw editor lines plus pre-computed chrome
+ * This module is pure: given the raw editor lines plus pre-computed layout
  * pieces, it returns the final array of terminal rows. It knows nothing about
  * sessions, VCS, cost tracking, or Pi API events.
  */
 
-export interface ChromeInput {
+export interface EditorLayoutInput {
 	/** Raw lines from the parent editor (`super.render(width)`). */
 	editorLines: string[];
 	/** Terminal width in columns. */
@@ -25,7 +25,7 @@ export interface ChromeInput {
 }
 
 /**
- * Compose the final rendered lines for the minimal editor chrome.
+ * Compose the final rendered lines for the minimal editor layout.
  *
  * - Removes the editor's top border so the input begins immediately.
  * - Finds the last border-like line (the bottom border) and replaces it with
@@ -35,7 +35,7 @@ export interface ChromeInput {
  * - Prefixes all remaining content lines with `prefix`, reclaiming the prefix
  *   width via ANSI-aware truncation.
  */
-export function composeChrome(input: ChromeInput): string[] {
+export function composeEditorLayout(input: EditorLayoutInput): string[] {
 	const { editorLines, width, prefix, blankBar, status, footerRow } = input;
 	const contentCap = Math.max(0, width - visibleWidth(prefix));
 
