@@ -20,7 +20,7 @@ import {
  *   - A single LEFT vertical bar `┃` down the left side (no top/right/bottom
  *     enclosing border), tinted to the thinking level (pi's indicator).
  *   - Input text inset by 2 spaces.
- *   - A status row below the input INSIDE the bar: `provider/model:thinking`
+ *   - A status row below the input INSIDE the bar: `provider model:thinking`
  *     (left) and `${ctx %}/${ctxK} $cost` (right). Provider and separators are
  *     muted; model, thinking, context usage, and cost use theme-aware accents.
  *     Cost is cumulative for the session, tracked via `turn_end` events.
@@ -206,7 +206,7 @@ export default function (pi: ExtensionAPI) {
 				const thinking = pi.getThinkingLevel();
 				const statusLeft = ctx.model
 					? thm.fg("muted", ctx.model.provider) +
-						thm.fg("muted", "/") +
+						" " +
 						thm.fg("accent", ctx.model.id) +
 						" " +
 						this.borderColor(`${thinking} `)
