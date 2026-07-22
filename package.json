@@ -1,6 +1,6 @@
 {
   "name": "pi-cozy-ui",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Cozy UI for Pi — left-bar input box, startup screen, and cozy themes",
   "license": "MIT",
   "repository": {
