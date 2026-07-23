@@ -66,4 +66,23 @@ describe("composeEditorLayout", () => {
 		// Truncation keeps the visible width within the requested width.
 		expect(out[1].length).toBeLessThan("┃  very long input text".length);
 	});
+
+	it("applies contentColor to content lines but not borders or autocomplete", () => {
+		const colorize = (text: string) => `[${text}]`;
+		const input = {
+			...baseInput,
+			editorLines: [
+				"──────────",
+				"input text",
+				"──────────",
+				"suggestion 1",
+			],
+			contentColor: colorize,
+		};
+		const out = composeEditorLayout(input);
+		expect(out[0]).toBe("┃  [input text]");
+		expect(out[1]).toBe(baseInput.blankBar);
+		expect(out[2]).toBe(baseInput.status);
+		expect(out[3]).toBe("suggestion 1");
+	});
 });

@@ -12,9 +12,9 @@ import {
 describe("statusLine", () => {
 	it("places left and right with the minimum gap", () => {
 		// Right already starts with a space, so the rendered gap is two spaces.
-		expect(statusLine("┃  ", "session", " 50%/8k $0.12 model:low ", 35)).toBe(
-			"┃  session  50%/8k $0.12 model:low ",
-		);
+		expect(
+			statusLine("┃  ", "session", " 50%/8k $0.12 model:low ", 35),
+		).toBe("┃  session  50%/8k $0.12 model:low ");
 	});
 
 	it("trims the right side first when the line is too long", () => {
@@ -112,7 +112,9 @@ describe("center", () => {
 
 describe("buildFullWidthRow", () => {
 	it("aligns left and right at full width", () => {
-		expect(buildFullWidthRow("~/foo", "main", 20)).toBe(" ~/foo         main ");
+		expect(buildFullWidthRow("~/foo", "main", 20)).toBe(
+			" ~/foo         main ",
+		);
 	});
 
 	it("keeps a one-column gap without exceeding the requested width", () => {

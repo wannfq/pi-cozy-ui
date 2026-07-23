@@ -14,7 +14,9 @@ describe("parseGitStatus", () => {
 	});
 
 	it("counts staged and unstaged changes independently", () => {
-		expect(parseGitStatus("M  staged.ts\0 M edited.ts\0MM both.ts\0")).toEqual({
+		expect(
+			parseGitStatus("M  staged.ts\0 M edited.ts\0MM both.ts\0"),
+		).toEqual({
 			staged: 2,
 			modified: 2,
 			deleted: 0,

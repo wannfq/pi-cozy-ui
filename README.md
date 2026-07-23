@@ -47,7 +47,7 @@ In the config TUI, set `quietStartup` to `true`. Or add it directly to `~/.pi/ag
 
 ```json
 {
-  "quietStartup": true
+	"quietStartup": true
 }
 ```
 
@@ -67,14 +67,14 @@ Edit, then type `/reload` inside pi for live updates.
 
 ## Layout
 
-| File | Purpose |
-| --- | --- |
-| `extensions/input-field.ts` | Custom editor: left-bar input box with an embedded muted status row. |
-| `extensions/startup-screen.ts` | Startup header: centered ASCII "pi" icon and version. |
-| `lib/text-layout.ts` | Pure ANSI-aware text helpers used by both extensions. |
-| `lib/editor-layout.ts` | Pure composer for the minimal editor layout. |
-| `themes/cozy-dark.json` | Catppuccin-inspired dark theme. |
-| `themes/cozy-light.json` | Catppuccin-inspired light theme. |
+| File                           | Purpose                                                              |
+| ------------------------------ | -------------------------------------------------------------------- |
+| `extensions/input-field.ts`    | Custom editor: left-bar input box with an embedded muted status row. |
+| `extensions/startup-screen.ts` | Startup header: centered ASCII "pi" icon and version.                |
+| `lib/text-layout.ts`           | Pure ANSI-aware text helpers used by both extensions.                |
+| `lib/editor-layout.ts`         | Pure composer for the minimal editor layout.                         |
+| `themes/cozy-dark.json`        | Catppuccin-inspired dark theme.                                      |
+| `themes/cozy-light.json`       | Catppuccin-inspired light theme.                                     |
 
 ## Test
 

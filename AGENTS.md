@@ -34,11 +34,11 @@ lib/ — pure, testable helper modules shared by the extensions
 
 ## Key Directories
 
-| Path | Purpose |
-| ------ | --------- |
-| `extensions/` | Pi extension source (`input-field.ts`, `startup-screen.ts`) |
-| `lib/` | Pure helper modules shared by the extensions |
-| `package.json` | Pi extension manifest via the `"pi"` field |
+| Path           | Purpose                                                     |
+| -------------- | ----------------------------------------------------------- |
+| `extensions/`  | Pi extension source (`input-field.ts`, `startup-screen.ts`) |
+| `lib/`         | Pure helper modules shared by the extensions                |
+| `package.json` | Pi extension manifest via the `"pi"` field                  |
 
 ## Development Commands
 
@@ -66,14 +66,14 @@ Inside a running Pi session, `/reload` hot-reloads the extension for live iterat
 
 ## Important Files
 
-| File | Role |
-| ------ | ------ |
-| `package.json` | Extension manifest. The `"pi"` field is the Pi loading contract: an `extensions` array + `keywords: ["pi-package"]`. Pins `pnpm@11.1.0`. |
-| `extensions/input-field.ts` | Editor module. Default-exported factory; defines `MinimalEditor` (CustomEditor subclass), `EmptyFooter`, `SessionMetrics`, and `VcsBranchAdapter`. |
+| File                           | Role                                                                                                                                                                                  |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `package.json`                 | Extension manifest. The `"pi"` field is the Pi loading contract: an `extensions` array + `keywords: ["pi-package"]`. Pins `pnpm@11.1.0`.                                              |
+| `extensions/input-field.ts`    | Editor module. Default-exported factory; defines `MinimalEditor` (CustomEditor subclass), `EmptyFooter`, `SessionMetrics`, and `VcsBranchAdapter`.                                    |
 | `extensions/startup-screen.ts` | Startup screen module. Default-exported factory; defines `StartupHeader` (Component) installed via `ctx.ui.setHeader()`. Renders a centered "pi" ASCII icon and version with padding. |
-| `lib/text-layout.ts` | Pure text-layout helpers: `center`, `statusLine`, `formatCwd`, `stripAnsi`, `isBorderLine`, `formatCost`, `buildFullWidthRow`. |
-| `lib/editor-layout.ts` | Pure layout composer: `composeEditorLayout()` builds the minimal editor frame from raw editor lines. |
-| `pnpm-workspace.yaml` | Minimal workspace config; grants build perms for `@google/genai` and `protobufjs`. |
+| `lib/text-layout.ts`           | Pure text-layout helpers: `center`, `statusLine`, `formatCwd`, `stripAnsi`, `isBorderLine`, `formatCost`, `buildFullWidthRow`.                                                        |
+| `lib/editor-layout.ts`         | Pure layout composer: `composeEditorLayout()` builds the minimal editor frame from raw editor lines.                                                                                  |
+| `pnpm-workspace.yaml`          | Minimal workspace config; grants build perms for `@google/genai` and `protobufjs`.                                                                                                    |
 
 ## Runtime / Tooling Preferences
 

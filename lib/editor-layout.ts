@@ -22,6 +22,8 @@ export interface EditorLayoutInput {
 	status: string;
 	/** Bottom row drawn outside the box (cwd + branch). */
 	footerRow: string;
+	/** Optional colorizer applied to content lines (not borders/dropdown). */
+	contentColor?: (text: string) => string;
 }
 
 /**
@@ -36,7 +38,15 @@ export interface EditorLayoutInput {
  *   width via ANSI-aware truncation.
  */
 export function composeEditorLayout(input: EditorLayoutInput): string[] {
-	const { editorLines, width, prefix, blankBar, status, footerRow } = input;
+	const {
+		editorLines,
+		width,
+		prefix,
+		blankBar,
+		status,
+		footerRow,
+		contentColor,
+	} = input;
 	const contentCap = Math.max(0, width - visibleWidth(prefix));
 
 	// The bottom border is the last border-like line before any autocomplete
@@ -59,7 +69,10 @@ export function composeEditorLayout(input: EditorLayoutInput): string[] {
 			out.push(editorLines[i]);
 			continue;
 		}
-		out.push(prefix + truncateToWidth(editorLines[i], contentCap, ""));
+		const coloredLine = contentColor
+			? contentColor(truncateToWidth(editorLines[i], contentCap, ""))
+			: truncateToWidth(editorLines[i], contentCap, "");
+		out.push(prefix + coloredLine);
 	}
 
 	// Fallback when the editor did not provide a recognizable bottom border.

@@ -117,13 +117,19 @@ function createGitTracker(
 				return;
 			}
 
-			const branchResult = await exec("git", ["branch", "--show-current"], {
-				cwd,
-				timeout: 3000,
-			});
+			const branchResult = await exec(
+				"git",
+				["branch", "--show-current"],
+				{
+					cwd,
+					timeout: 3000,
+				},
+			);
 			setSnapshot({
 				branch:
-					branchResult.code === 0 ? branchResult.stdout.trim() || null : null,
+					branchResult.code === 0
+						? branchResult.stdout.trim() || null
+						: null,
 				status: parseGitStatus(statusResult.stdout),
 			});
 		} catch {
@@ -198,7 +204,8 @@ export default function (pi: ExtensionAPI) {
 					typeof contextPercent === "number"
 						? `${Math.round(contextPercent)}%`
 						: "?";
-				const contextWindow = usage?.contextWindow ?? ctx.model?.contextWindow;
+				const contextWindow =
+					usage?.contextWindow ?? ctx.model?.contextWindow;
 				const ctxK = contextWindow
 					? `${(contextWindow / 1000).toFixed(0)}k`
 					: "?";
@@ -247,6 +254,7 @@ export default function (pi: ExtensionAPI) {
 					blankBar,
 					status: statusLine(prefix, statusLeft, statusRight, width),
 					footerRow: buildFullWidthRow(cwdStr, gitStr, width),
+					contentColor: (text) => thm.fg("thinkingText", text),
 				});
 			}
 		}

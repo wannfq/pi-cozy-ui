@@ -40,7 +40,9 @@ function createStartupHeader(theme: Theme): Component {
 				return logoColored;
 			});
 			// Equalize visible width so centering aligns the logo uniformly.
-			const maxVis = Math.max(...coloredLines.map((s) => visibleWidth(s)));
+			const maxVis = Math.max(
+				...coloredLines.map((s) => visibleWidth(s)),
+			);
 			for (const s of coloredLines) {
 				const padded = s + " ".repeat(maxVis - visibleWidth(s));
 				lines.push(center(padded, width));
